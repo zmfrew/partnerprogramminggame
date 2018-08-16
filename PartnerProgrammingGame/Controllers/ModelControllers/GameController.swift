@@ -27,19 +27,23 @@ class GameController {
         
         if correctMoves.count == userMoves.count {
             if correctMoves == userMoves {
+                print("Correct! User got all moves right, time to move to next round")
                 createNextRound()
                 return Move.correctAndNewRound
             } else {
+                print("Incorrect")
                 return Move.incorrect
             }
         } else {
+            // user is in mid-game
             for number in 0..<userMoves.count {
                 if correctMoves[number] != userMoves[number] {
                     print("Incorrect")
                     return Move.incorrect
                 }
             }
-            print("All moves so far are correct.")
+            
+            print("All of the moves so far are correct")
             return Move.correctAndContinue
         }
     }
@@ -48,13 +52,11 @@ class GameController {
     func createNextRound() {
         correctMoves.append(pickRandomNumberBetween0and3())
         userMoves = []
-        print("Here's the correct answers: \(correctMoves)")
     }
     
     func startNewGame() {
     correctMoves = [pickRandomNumberBetween0and3(), pickRandomNumberBetween0and3(), pickRandomNumberBetween0and3()]
         userMoves = []
-        print("Here's the correct answers: \(correctMoves)")
     }
     
     private func pickRandomNumberBetween0and3() -> Int {

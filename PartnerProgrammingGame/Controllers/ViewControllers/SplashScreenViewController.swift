@@ -50,6 +50,8 @@ class SplashScreenViewController: UIViewController {
     }
     
     func animatePinkView() {
+        pinkView.layer.cornerRadius = 10.0
+
         UIView.animate(withDuration: 0.5, delay: 0.3, options: [.repeat, .curveEaseOut], animations: {
             self.pinkView.center = CGPoint(x: self.pinkView.center.x - self.view.bounds.width, y: self.pinkView.center.y)
             self.pinkView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
@@ -62,6 +64,8 @@ class SplashScreenViewController: UIViewController {
     }
     
     func animateBlueView() {
+        blueView.layer.cornerRadius = 10.0
+        
         UIView.animate(withDuration: 1.0, delay: 0.2, options: [.repeat, .curveLinear], animations: {
             self.blueView.center = CGPoint(x: self.blueView.center.x + self.view.bounds.width, y: self.blueView.center.y)
         }, completion: nil)
@@ -73,6 +77,8 @@ class SplashScreenViewController: UIViewController {
     }
     
     func animateGreenView() {
+        greenView.layer.cornerRadius = 10.0
+        
         UIView.animate(withDuration: 2.0, delay: 0.3, options: [.repeat, .curveEaseOut], animations: {
             self.greenView.center = CGPoint(x: self.greenView.center.x - self.view.bounds.width, y: self.greenView.center.y)
             self.greenView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
@@ -85,6 +91,8 @@ class SplashScreenViewController: UIViewController {
     }
     
     func animateYellowView() {
+        yellowView.layer.cornerRadius = 10.0
+        
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.1, options: [.repeat, .autoreverse], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
                 self.yellowView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
