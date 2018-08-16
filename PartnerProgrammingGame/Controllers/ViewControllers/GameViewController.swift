@@ -37,19 +37,34 @@ class GameViewController: UIViewController {
         super.viewDidAppear(animated)
         game.startNewGame()
         showSequenceOfPresses()
-        
-        pinkButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        blueButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        greenButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        yellowButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
- 
+    
+    // MARK: - Actions
+    @IBAction func pinkButtonTapped(_ sender: UIButton) {
+        buttonTapped(sender, index: 0)
+    }
+    
+    
+    @IBAction func blueButtonTapped(_ sender: UIButton) {
+        buttonTapped(sender, index: 1)
+    }
+    
+    
+    @IBAction func greenButtonTapped(_ sender: UIButton) {
+        buttonTapped(sender, index: 2)
+    }
+    
+    
+    @IBAction func yellowButtonTapped(_ sender: UIButton) {
+        buttonTapped(sender, index: 3)
+    }
+    
     // MARK: - Instance Methods
     func setUpButton(_ button: UIButton) {
         button.layer.cornerRadius = 10.0
     }
     
-    @objc func buttonTapped(_ sender: UIButton) {
+    func buttonTapped(_ sender: UIButton, index: Int) {
         if isGameOver {
             isGameOver = false
             displayLabel.text = ""
@@ -57,26 +72,35 @@ class GameViewController: UIViewController {
             showSequenceOfPresses()
         }
         
-        let response = game.userSelected(sender.tag)
+        let response = game.userSelected(index)
+        
         switch response {
         case .correctAndContinue:
             show("Correct", after: 0)
         case .correctAndNewRound:
-            show("Great job, time for a new round!", after: 0.5)
+            show("Correct, time for new round", after: 0)
+            showSequenceOfPresses()
         case .incorrect:
             displayLabel.alpha = 1
-            displayLabel.text = "You lost. Press any button to start again."
+            displayLabel.text = "You lost. Press any button to start again"
             isGameOver = true
         }
     }
     
     func showSequenceOfPresses() {
-        view.isUserInteractionEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.pinkButton.isEnabled = false
+            self.blueButton.isEnabled = false
+            self.greenButton.isEnabled = false
+            self.yellowButton.isEnabled = false
+        }
+        
+        
         var count = 1.0
         
         for move in game.correctMoves {
             var colorAsString: String
-            
             switch move {
             case 0:
                 colorAsString = "pink"
@@ -92,9 +116,16 @@ class GameViewController: UIViewController {
             
             show(colorAsString, after: count)
             count += 1.0
+            
         }
         
-        view.isUserInteractionEnabled = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.pinkButton.isEnabled = true
+            self.blueButton.isEnabled = true
+            self.greenButton.isEnabled = true
+            self.yellowButton.isEnabled = true
+        }
+        
     }
     
     func show(_ text: String, after delay: Double) {
