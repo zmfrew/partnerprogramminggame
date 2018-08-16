@@ -25,6 +25,12 @@ class GameViewController: UIViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpButton(pinkButton)
+        setUpButton(blueButton)
+        setUpButton(greenButton)
+        setUpButton(yellowButton)
+        
+        blackView.layer.cornerRadius = 10.0
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -39,6 +45,10 @@ class GameViewController: UIViewController {
     }
  
     // MARK: - Instance Methods
+    func setUpButton(_ button: UIButton) {
+        button.layer.cornerRadius = 10.0
+    }
+    
     @objc func buttonTapped(_ sender: UIButton) {
         if isGameOver {
             isGameOver = false
