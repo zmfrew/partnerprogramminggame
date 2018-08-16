@@ -14,6 +14,7 @@
 		B69D3DC02124D52F00777409 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69D3DBE2124D52F00777409 /* LaunchScreen.storyboard */; };
 		B69D3E162125CDA200777409 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D3E152125CDA200777409 /* User.swift */; };
 		B69D3E182125D2D300777409 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D3E172125D2D300777409 /* GameViewController.swift */; };
+		B69D3E1F2125D98800777409 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D3E1E2125D98800777409 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B69D3DC12124D52F00777409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B69D3E152125CDA200777409 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B69D3E172125D2D300777409 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B69D3E1E2125D98800777409 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +63,10 @@
 				B69D3E112125C8EB00777409 /* Models */,
 				B69D3E102125C8E900777409 /* Views */,
 				B69D3E0F2125C8E700777409 /* Controllers */,
-				B69D3E0E2125C8E500777409 /* Helpers */,
+				B69D3E1D2125D97900777409 /* Helpers */,
 				B69D3E142125C91400777409 /* Resources */,
 			);
 			path = PartnerProgrammingGame;
-			sourceTree = "<group>";
-		};
-		B69D3E0E2125C8E500777409 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B69D3E0F2125C8E700777409 /* Controllers */ = {
@@ -124,6 +119,14 @@
 				B69D3DC12124D52F00777409 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B69D3E1D2125D97900777409 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B69D3E1E2125D98800777409 /* Helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +204,7 @@
 				4F98CE382125D8FD0035D134 /* GameController.swift in Sources */,
 				B69D3E182125D2D300777409 /* GameViewController.swift in Sources */,
 				B69D3DB62124D52D00777409 /* AppDelegate.swift in Sources */,
+				B69D3E1F2125D98800777409 /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
