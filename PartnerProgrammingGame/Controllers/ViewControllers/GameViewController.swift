@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
         
         blackView.layer.cornerRadius = 10.0
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         game.startNewGame()
@@ -41,21 +41,27 @@ class GameViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func pinkButtonTapped(_ sender: UIButton) {
+        flashGray(pinkButton, color: Constants.pink)
+        
         buttonTapped(sender, index: 0)
+        
     }
     
     
     @IBAction func blueButtonTapped(_ sender: UIButton) {
+        flashGray(blueButton, color: Constants.blue)
         buttonTapped(sender, index: 1)
     }
     
     
     @IBAction func greenButtonTapped(_ sender: UIButton) {
+        flashGray(greenButton, color: Constants.green)
         buttonTapped(sender, index: 2)
     }
     
     
     @IBAction func yellowButtonTapped(_ sender: UIButton) {
+        flashGray(yellowButton, color: Constants.yellow)
         buttonTapped(sender, index: 3)
     }
     
@@ -137,16 +143,19 @@ class GameViewController: UIViewController {
             })
         }
     }
-
+    
+    func flashGray(_ button: UIButton, color: UIColor) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.05, animations: {
+                button.backgroundColor = UIColor.lightGray
+            })
+        }
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.05, animations: {
+                button.backgroundColor = color
+            })
+        }
+    }
+    
 }
-
-//// MARK: - UIButton Extension - Gray-out buttons after being pressed
-//extension UIButton {
-//
-//    open override var isHighlighted: Bool {
-//        didSet {
-//            backgroundColor = isHighlighted ? .lightGray : Constants.colors[self.tag]
-//        }
-//    }
-//
-//}
