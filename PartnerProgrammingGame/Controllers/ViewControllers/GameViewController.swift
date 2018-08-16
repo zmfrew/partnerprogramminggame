@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
     // MARK: - Instance Properties
-    var game = GamePlay()
+    var game = GameController()
     var isGameOver = false
     
     // MARK: - LifeCycle Methods
@@ -88,6 +88,8 @@ class GameViewController: UIViewController {
                 colorAsString = "green"
             case 3:
                 colorAsString = "yellow"
+            default:
+                colorAsString = "white"
             }
             
             show(colorAsString, after: count)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B65DA46B2125EB4000BFB15A /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DA46A2125EB4000BFB15A /* GameController.swift */; };
 		B69D3DB62124D52D00777409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D3DB52124D52D00777409 /* AppDelegate.swift */; };
 		B69D3DBB2124D52D00777409 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69D3DB92124D52D00777409 /* Main.storyboard */; };
 		B69D3DBD2124D52F00777409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69D3DBC2124D52F00777409 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B65DA46A2125EB4000BFB15A /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		B69D3DB22124D52D00777409 /* PartnerProgrammingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartnerProgrammingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69D3DB52124D52D00777409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B69D3DBA2124D52D00777409 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		B69D3E132125C8F300777409 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B65DA46A2125EB4000BFB15A /* GameController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B69D3E162125CDA200777409 /* User.swift in Sources */,
+				B65DA46B2125EB4000BFB15A /* GameController.swift in Sources */,
 				B69D3E182125D2D300777409 /* GameViewController.swift in Sources */,
 				B69D3DB62124D52D00777409 /* AppDelegate.swift in Sources */,
 				B69D3E1F2125D98800777409 /* Constants.swift in Sources */,
