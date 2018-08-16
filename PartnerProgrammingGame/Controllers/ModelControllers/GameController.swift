@@ -7,22 +7,24 @@
 //
 
 import Foundation
+
 class GameController {
     
-    //MARK: Properties
+    // MARK: - Properties
     private var userMoves: [Int] = []
     private(set) var correctMoves: [Int] = []
     
-    //MARK: Moves Enum
+    // MARK: - Moves Enum
     enum Move {
         case correctAndContinue
         case correctAndNewRound
         case incorrect
     }
     
-    //MARK: Methods
+    // MARK: - Methods
     func userSelected(_ value: Int) -> Move {
         userMoves.append(value)
+        
         if correctMoves.count == userMoves.count {
             if correctMoves == userMoves {
                 createNextRound()
@@ -41,12 +43,14 @@ class GameController {
             return Move.correctAndContinue
         }
     }
-    //MARK Methods
+    
+    // MARK: - Methods
     func createNextRound() {
         correctMoves.append(pickRandomNumberBetween0and3())
         userMoves = []
         print("Here's the correct answers: \(correctMoves)")
     }
+    
     func startNewGame() {
     correctMoves = [pickRandomNumberBetween0and3(), pickRandomNumberBetween0and3(), pickRandomNumberBetween0and3()]
         userMoves = []

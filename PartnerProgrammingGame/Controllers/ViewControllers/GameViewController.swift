@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var greenButton: UIButton!
-    @IBOutlet weak var yellowView: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var blackView: UIView!
     @IBOutlet weak var displayLabel: UILabel!
     
@@ -31,27 +31,15 @@ class GameViewController: UIViewController {
         super.viewDidAppear(animated)
         game.startNewGame()
         showSequenceOfPresses()
+        
+        pinkButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        blueButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        greenButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        yellowButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
-    
-    // MARK: - Actions
-    @IBAction func pinkButtonPressed(_ sender: UIButton) {
-        buttonTapped(sender)
-    }
-    
-    @IBAction func blueButtonPressed(_ sender: UIButton) {
-        buttonTapped(sender)
-    }
-    
-    @IBAction func greenButtonPressed(_ sender: UIButton) {
-        buttonTapped(sender)
-    }
-    
-    @IBAction func yellowButtonPressed(_ sender: UIButton) {
-        buttonTapped(sender)
-    }
-    
+ 
     // MARK: - Instance Methods
-    func buttonTapped(_ sender: UIButton) {
+    @objc func buttonTapped(_ sender: UIButton) {
         if isGameOver {
             isGameOver = false
             displayLabel.text = ""
@@ -89,7 +77,7 @@ class GameViewController: UIViewController {
             case 3:
                 colorAsString = "yellow"
             default:
-                colorAsString = "white"
+                colorAsString = "unknown"
             }
             
             show(colorAsString, after: count)
@@ -111,12 +99,13 @@ class GameViewController: UIViewController {
 
 }
 
-// MARK: - UIButton Extension - Gray-out buttons after being pressed
-extension UIButton {
-    
-    open override var isHighlighted: Bool {
-        didSet {
-            backgroundColor = isHighlighted ? .lightGray : Constants.colors[self.tag]
-        }
-    }
-}
+//// MARK: - UIButton Extension - Gray-out buttons after being pressed
+//extension UIButton {
+//
+//    open override var isHighlighted: Bool {
+//        didSet {
+//            backgroundColor = isHighlighted ? .lightGray : Constants.colors[self.tag]
+//        }
+//    }
+//
+//}
