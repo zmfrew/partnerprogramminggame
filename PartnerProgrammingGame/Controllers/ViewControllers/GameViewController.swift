@@ -41,27 +41,24 @@ class GameViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func pinkButtonTapped(_ sender: UIButton) {
-        flashGray(pinkButton, color: Constants.pink)
-        
+        flashGray(pinkButton, color: Constants.pink, sender: sender)
         buttonTapped(sender, index: 0)
-        
     }
     
-    
     @IBAction func blueButtonTapped(_ sender: UIButton) {
-        flashGray(blueButton, color: Constants.blue)
+        flashGray(blueButton, color: Constants.blue, sender: sender)
         buttonTapped(sender, index: 1)
     }
     
     
     @IBAction func greenButtonTapped(_ sender: UIButton) {
-        flashGray(greenButton, color: Constants.green)
+        flashGray(greenButton, color: Constants.green, sender: sender)
         buttonTapped(sender, index: 2)
     }
     
     
     @IBAction func yellowButtonTapped(_ sender: UIButton) {
-        flashGray(yellowButton, color: Constants.yellow)
+        flashGray(yellowButton, color: Constants.yellow, sender: sender)
         buttonTapped(sender, index: 3)
     }
     
@@ -144,7 +141,15 @@ class GameViewController: UIViewController {
         }
     }
     
-    func flashGray(_ button: UIButton, color: UIColor) {
+    func flashGray(_ button: UIButton, color: UIColor, sender: UIButton) {
+        UIButton.animate(withDuration: 0.2, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
+        }, completion: { finish in
+            UIButton.animate(withDuration: 0.2, animations: {
+                sender.transform = CGAffineTransform.identity
+            })
+        })
+        
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.05, animations: {
                 button.backgroundColor = UIColor.lightGray
